@@ -240,3 +240,31 @@ IdTipo=8 AND Nombre='suite ejecutiva' OR
 IdTipo=9 AND Nombre='suite presidencial' OR
 IdTipo=10 AND Nombre='estadias prolongadas');
 GO
+
+INSERT INTO TipoHabitacion(IdTipo, Nombre, NumeroCamas, Descripcion, Precio
+) VALUES (1, 'individual', 1, 'Puede hacer uso de servicios extra', 450);
+GO
+
+INSERT INTO TipoHabitacion(IdTipo, Nombre, NumeroCamas, Descripcion, Precio
+) VALUES (2, 'doble', 1, 'Puede hacer uso de servicios extra', 900);
+GO
+
+INSERT INTO TipoHabitacion(IdTipo, Nombre, NumeroCamas, Descripcion, Precio
+) VALUES (3, 'doble-doble', 2, 'Habitacion con dos camas matrimoniales', 1500);
+GO
+
+INSERT INTO TipoHabitacion(IdTipo, Nombre, NumeroCamas, Descripcion, Precio
+) VALUES (4, 'triple', 3, 'Habitacion con tres camas individuales, una cama doble y una cama individual o dos camas dobles', 2500);
+GO
+
+INSERT INTO TipoHabitacion(IdTipo, Nombre, NumeroCamas, Descripcion, Precio
+) VALUES (5, 'quad', 4, 'Una habitación asignada a cuatro personas. Puede tener dos o más camas.', 3500);
+GO
+
+INSERT INTO TipoHabitacion(IdTipo, Nombre, NumeroCamas, Descripcion, Precio
+) VALUES (6, 'king', 1, 'Una habitación con una cama king-size. Puede ser ocupado por una o más personas.', 1350);
+GO
+
+
+SELECT*FROM TipoHabitacion;
+GO

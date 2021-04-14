@@ -1,0 +1,25 @@
+Las siguientes son algunas clases de habitación comunes en la industria hotelera:
+
+Individual: Una habitación asignada a una persona. Puede tener una o más camas. El tamaño de la habitación o el área de las habitaciones individuales son generalmente de 37 m² a 45 m².
+
+Doble: Una habitación asignada a dos personas. Puede tener una o más camas. El tamaño de la habitación o el área de las habitaciones dobles son generalmente entre 40 m² y 45 m².
+
+Triple: Una habitación con capacidad para tres personas y ha sido equipada con tres camas individuales, una cama doble y una cama individual o dos camas dobles.
+
+Quad: Una habitación asignada a cuatro personas. Puede tener dos o más camas. El tamaño de la habitación o el área de las habitaciones Quad son generalmente de 70 a 85 m².
+
+Queen: Una habitación con una cama de matrimonio. Puede ser ocupado por una o más personas.
+
+King: Una habitación con una cama king-size. Puede ser ocupado por una o más personas.
+
+Doble-doble: una habitación con dos camas dobles (o quizás queen). Y puede acomodar de dos a cuatro personas con dos camas individuales, dobles o grandes.
+
+Suite y Suite Ejecutiva: Es un salón o sala de estar, conectado a una o más habitaciones. (Una habitación con uno o más dormitorios y una sala de estar separada.) El tamaño de la habitación o el área de las habitaciones Suite son generalmente entre 70 m² y 100 m².
+
+Suite presidencial: La habitación más cara que brinda un hotel. Por lo general, un hotel tiene solo una suite presidencial disponible. Al igual que las suites normales, una suite presidencial siempre tiene uno o más dormitorios, una sala de estar bien decorada, los suministros son de alta calidad e incluye servicios personalizados (por ejemplo, mayordomo personal durante la estancia).
+
+Apartamentos o habitación para estadías prolongadas: este tipo de habitación se puede encontrar en apartamentos y hoteles de servicio destinados a huéspedes de estadías prolongadas. Las cocinas abiertas, el equipo de cocina, la secadora, la lavadora, etc. Generalmente están disponibles en la habitación. Los servicios de limpieza solo se brindan una vez a la semana o dos veces a la semana.
+
+Cabaña: este tipo de habitación está siempre junto a la piscina o tiene una piscina privada adjunta a la habitación.
+
+Piso ejecutivo: Un cuarto ubicado en el "piso ejecutivo" que permite un acceso conveniente al salón ejecutivo. Además, algunos hoteles también ofrecen "pisos ejecutivos femeninos" con sus habitaciones asignadas solo a huéspedes
