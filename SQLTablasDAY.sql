@@ -218,3 +218,25 @@ INSERT INTO EmpleadoHotel VALUES
 (2026,1015,105);
 GO
 SELECT *FROM EmpleadoHotel;
+
+CREATE TABLE TipoHabitacion(
+IdTipo INTEGER PRIMARY KEY,
+Nombre VARCHAR(100)NOT NULL,
+NumeroCamas INTEGER NOT NULL,
+Descripcion VARCHAR(100) NOT NULL,
+Precio DECIMAL(13,2) NOT NULL
+);
+GO
+
+ALTER TABLE TipoHabitacion ADD CONSTRAINT CK_NombreTipo CHECK(
+IdTipo=1 AND Nombre='individual' OR
+IdTipo=2 AND Nombre='doble' OR
+IdTipo=3 AND Nombre='doble-doble' OR
+IdTipo=4 AND Nombre='triple' OR
+IdTipo=5 AND Nombre='quad' OR
+IdTipo=6 AND Nombre='king' OR
+IdTipo=7 AND Nombre='queen' OR
+IdTipo=8 AND Nombre='suite ejecutiva' OR
+IdTipo=9 AND Nombre='suite presidencial' OR
+IdTipo=10 AND Nombre='estadias prolongadas');
+GO
