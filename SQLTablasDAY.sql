@@ -269,5 +269,3 @@ GO
 SELECT*FROM TipoHabitacion;
 GO
 
-
- 
