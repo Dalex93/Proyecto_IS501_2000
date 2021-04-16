@@ -279,15 +279,15 @@ TipoId INTEGER REFERENCES TipoHabitacion(IdTipo)
 GO
 
 INSERT INTO Habitacion(NumeroHabitacion, Telefono, Disponibilidad, HotelId, TipoId) 
-VALUES(1, '9920-21-22', 0, 1000, 1); 
+VALUES(1, '9920-21-22', 0, 100, 1); 
 GO
 
 INSERT INTO Habitacion(NumeroHabitacion, Telefono, Disponibilidad, HotelId, TipoId) 
-VALUES(2, '3333-20-19', 0, 1000, 2); 
+VALUES(2, '3333-20-19', 0, 100, 2); 
 GO
 
 INSERT INTO Habitacion(NumeroHabitacion, Telefono, Disponibilidad, HotelId, TipoId) 
-VALUES(3, '2232-23-22', 0,1000, 3); 
+VALUES(3, '2232-23-22', 0,100, 3); 
 GO
 
 SELECT*FROM Habitacion;
@@ -328,16 +328,24 @@ HotelId INTEGER REFERENCES Hotel(IdHotel)
 GO
 
 INSERT INTO HuespedHabitacion(NumeroRegistro, FechaHoraLlegada, FechaHoraSalida, HuespedId, HabitacionNumero, HotelId
-) VALUES (1, '2021-15-04 10:10:09 AM', '2021-18-04 10:18:00 AM', 1, 15, 1000);
+) VALUES (1, '2021-15-04 10:10:09 AM', '2021-18-04 10:18:00 AM', 1, 15, 100);
 GO
 
 INSERT INTO HuespedHabitacion(NumeroRegistro, FechaHoraLlegada, FechaHoraSalida, HuespedId, HabitacionNumero, HotelId
-) VALUES (2, '2021-16-04 6:15:29 PM', '2021-20-04 12:01:50 AM', 2, 20, 1000);
+) VALUES (2, '2021-16-04 6:15:29 PM', '2021-20-04 12:01:50 AM', 2, 20, 100);
 GO
 
 INSERT INTO HuespedHabitacion(NumeroRegistro, FechaHoraLlegada, FechaHoraSalida, HuespedId, HabitacionNumero, HotelId
-) VALUES (3, '2021-17-04 1:39:05 PM', '2021-19-04 5:25:12 PM', 3, 25, 1000);
+) VALUES (3, '2021-17-04 1:39:05 PM', '2021-19-04 5:25:12 PM', 3, 25, 100);
 GO
 
 SELECT*FROM HuespedHabitacion;
+GO
+
+CREATE TABLE Transaccion(
+NumeroTransaccion INTEGER Identity(1,1) PRIMARY KEY,
+FechaHora DATETIME NOT NULL UNIQUE,
+NochesEstadia INTEGER REFERENCES HuespedHabitacion(NumeroRegistro),
+TipoHabitacion INTEGER REFERENCES TipoHabitacion(IdTipo),
+);
 GO
