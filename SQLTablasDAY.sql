@@ -307,6 +307,16 @@ PaisId INTEGER REFERENCES Paises(IdPais)
 );
 GO
 
+INSERT INTO Huesped(IdHuesped, PrimerNombre, SegundoNombre, PrimerApellido,SegundoApellido, CorreoElectronico, Telefono, Acompañantes, PaisId)
+VALUES (1, 'David', 'Alexander', 'Cardenas', 'Almendares', 'dalex10@hotmail.com', '9964-0090', 0, 1);
+GO
+INSERT INTO Huesped(IdHuesped, PrimerNombre, SegundoNombre, PrimerApellido,SegundoApellido, CorreoElectronico, Telefono, Acompañantes, PaisId)
+VALUES (2, 'Yoselin', NULL, 'Montes', NULL, 'yoselin@gmail.com', '9620-0916', 1, 1);
+GO
+
+SELECT*FROM Huesped;
+GO
+
 CREATE TABLE HuespedHabitacion(
 NumeroRegistro INTEGER PRIMARY KEY,
 FechaHoraLlegada DATETIME UNIQUE NOT NULL,
@@ -315,4 +325,19 @@ HuespedId INTEGER REFERENCES Huesped(IdHuesped),
 HabitacionNumero INTEGER REFERENCES Habitacion(NumeroHabitacion),
 HotelId INTEGER REFERENCES Hotel(IdHotel)
 );
+GO
+
+INSERT INTO HuespedHabitacion(NumeroRegistro, FechaHoraLlegada, FechaHoraSalida, HuespedId, HabitacionNumero, HotelId
+) VALUES (1, '2021-15-04 10:10:09 AM', '2021-18-04 10:18:00 AM', 1, 15, 1000);
+GO
+
+INSERT INTO HuespedHabitacion(NumeroRegistro, FechaHoraLlegada, FechaHoraSalida, HuespedId, HabitacionNumero, HotelId
+) VALUES (2, '2021-16-04 6:15:29 PM', '2021-20-04 12:01:50 AM', 2, 20, 1000);
+GO
+
+INSERT INTO HuespedHabitacion(NumeroRegistro, FechaHoraLlegada, FechaHoraSalida, HuespedId, HabitacionNumero, HotelId
+) VALUES (3, '2021-17-04 1:39:05 PM', '2021-19-04 5:25:12 PM', 3, 25, 1000);
+GO
+
+SELECT*FROM HuespedHabitacion;
 GO
