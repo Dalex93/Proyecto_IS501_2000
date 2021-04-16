@@ -349,3 +349,4 @@ NochesEstadia INTEGER REFERENCES HuespedHabitacion(NumeroRegistro),
 TipoHabitacion INTEGER REFERENCES TipoHabitacion(IdTipo),
 );
 GO
+
