@@ -278,4 +278,17 @@ TipoId INTEGER REFERENCES TipoHabitacion(IdTipo)
 ); 
 GO
 
+INSERT INTO Habitacion(NumeroHabitacion, Telefono, Disponibilidad, HotelId, TipoId) 
+VALUES(1, '9920-21-22', 0, 1000, 1); 
+GO
 
+INSERT INTO Habitacion(NumeroHabitacion, Telefono, Disponibilidad, HotelId, TipoId) 
+VALUES(2, '3333-20-19', 0, 1000, 2); 
+GO
+
+INSERT INTO Habitacion(NumeroHabitacion, Telefono, Disponibilidad, HotelId, TipoId) 
+VALUES(3, '2232-23-22', 0,1000, 3); 
+GO
+
+SELECT*FROM Habitacion;
+GO
