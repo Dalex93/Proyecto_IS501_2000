@@ -269,3 +269,13 @@ GO
 SELECT*FROM TipoHabitacion;
 GO
 
+CREATE TABLE Habitacion(
+NumeroHabitacion INTEGER PRIMARY KEY,
+Telefono VARCHAR(50) NOT NULL,
+Disponibilidad BIT NOT NULL,--No Disponible=1, Disponible=0-- 
+HotelId INTEGER REFERENCES Hotel(IdHotel),
+TipoId INTEGER REFERENCES TipoHabitacion(IdTipo) 
+); 
+GO
+
+
