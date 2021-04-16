@@ -292,3 +292,27 @@ GO
 
 SELECT*FROM Habitacion;
 GO
+
+CREATE TABLE Huesped(
+IdHuesped INTEGER PRIMARY KEY,
+PrimerNombre VARCHAR(20) NOT NULL,
+SegundoNombre VARCHAR(20), --Puede no tener segundo nombre--
+PrimerApellido VARCHAR(20) NOT NULL,
+SegundoApellido VARCHAR(20), --puede no tener segundo apellido--
+CorreoElectronico VARCHAR(50)NOT NULL,
+Telefono VARCHAR(50) NOT NULL,
+Acompañantes INTEGER, 
+CHECK(Acompañantes>=0 AND Acompañantes<=3),
+PaisId INTEGER REFERENCES Paises(IdPais)
+);
+GO
+
+CREATE TABLE HuespedHabitacion(
+NumeroRegistro INTEGER PRIMARY KEY,
+FechaHoraLlegada DATETIME UNIQUE NOT NULL,
+FechaHoraSalida DATETIME NOT NULL,
+HuespedId INTEGER REFERENCES Huesped(IdHuesped),
+HabitacionNumero INTEGER REFERENCES Habitacion(NumeroHabitacion),
+HotelId INTEGER REFERENCES Hotel(IdHotel)
+);
+GO
