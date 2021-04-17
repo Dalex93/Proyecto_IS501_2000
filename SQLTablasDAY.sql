@@ -377,3 +377,33 @@ Insert into Pedido(IdPedido, IdComida, Transaccion)
 Values(	2002, 2, 1);
 Go
 
+CREATE TABLE Servicio(
+IdServicio INTEGER PRIMARY KEY,
+NombreServicio VARCHAR(150) NOT NULL,
+Descripcion VARCHAR(200) NOT NULL,
+Precio INTEGER NOT NULL
+);
+GO
+
+INSERT INTO Servicio(IdServicio, NombreServicio, Descripcion, Precio)
+VALUES(1, 'Limpieza', 'Aseo completo de la habitacion', 200);
+GO
+
+INSERT INTO Servicio(IdServicio, NombreServicio, Descripcion, Precio)
+VALUES(2, 'Estacionamiento', 'Asegura un espacio de estacionamiento, durante su estadia', 200);
+GO
+
+INSERT INTO Servicio(IdServicio, NombreServicio, Descripcion, Precio)
+VALUES(3, 'Alberca', 'Disposicion de la alberca las 24 hrs, durante su estadia', 200);
+GO
+
+INSERT INTO Servicio(IdServicio, NombreServicio, Descripcion, Precio)
+VALUES(4, 'Gimnasio', 'Disposicion de la alberca las 24 hrs, durante su estadia', 200);
+GO
+
+INSERT INTO Servicio(IdServicio, NombreServicio, Descripcion, Precio)
+VALUES(5, 'Salon para Eventos', 'Horarios 7-11 AM, 1-5 PM', 200);
+GO
+
+SELECT * FROM Servicio;
+GO
