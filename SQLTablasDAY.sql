@@ -350,3 +350,14 @@ TipoHabitacion INTEGER REFERENCES TipoHabitacion(IdTipo),
 );
 GO
 
+INSERT INTO Transaccion(FechaHora, NochesEstadia)
+VALUES('2021-15-04 10:10:09 AM', 3);
+GO
+
+INSERT INTO Transaccion(FechaHora, NochesEstadia)
+VALUES('2021-16-04 06:15:29 PM', 1);
+GO
+
+SELECT * FROM Transaccion;
+GO
+
