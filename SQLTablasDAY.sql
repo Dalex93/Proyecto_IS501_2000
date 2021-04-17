@@ -361,3 +361,19 @@ GO
 SELECT * FROM Transaccion;
 GO
 
+CREATE TABLE Pedido(
+IdPedido INTEGER,
+IdComida INTEGER,
+PRIMARY KEY (IdPedido),
+Transaccion INTEGER REFERENCES Transaccion(NumeroTransaccion)
+);
+GO
+
+Insert into Pedido(IdPedido, IdComida, Transaccion) 
+Values(	2002, 1, 1);
+Go
+
+Insert into Pedido(IdPedido, IdComida, Transaccion) 
+Values(	2002, 2, 1);
+Go
+
