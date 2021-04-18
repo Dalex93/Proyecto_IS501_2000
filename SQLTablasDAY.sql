@@ -293,6 +293,24 @@ GO
 SELECT*FROM Habitacion;
 GO
 
+CREATE TABLE TipoHuesped(
+IdTipoHuesped INTEGER PRIMARY KEY,
+Nombre VARCHAR(20)
+);
+GO
+
+
+INSERT INTO TipoHuesped(IdTipoHuesped, Nombre) VALUES
+						(1,'Turista'),
+						(2,'Familia'),
+						(3,'Adulto Mayor'),
+						(4,'VIP'),
+						(5,'Habitual'),
+						(6,'Potencial')
+GO
+
+SELECT * FROM TipoHuesped;
+
 CREATE TABLE Huesped(
 IdHuesped INTEGER PRIMARY KEY,
 PrimerNombre VARCHAR(20) NOT NULL,
@@ -303,15 +321,16 @@ CorreoElectronico VARCHAR(50)NOT NULL,
 Telefono VARCHAR(50) NOT NULL,
 Acompañantes INTEGER, 
 CHECK(Acompañantes>=0 AND Acompañantes<=3),
-PaisId INTEGER REFERENCES Paises(IdPais)
+PaisId INTEGER REFERENCES Paises(IdPais),
+TipoHuesped INTEGER REFERENCES TipoHuesped(IdTipoHuesped)
 );
 GO
 
-INSERT INTO Huesped(IdHuesped, PrimerNombre, SegundoNombre, PrimerApellido,SegundoApellido, CorreoElectronico, Telefono, Acompañantes, PaisId)
-VALUES (1, 'David', 'Alexander', 'Cardenas', 'Almendares', 'dalex10@hotmail.com', '9964-0090', 0, 1);
+INSERT INTO Huesped(IdHuesped, PrimerNombre, SegundoNombre, PrimerApellido,SegundoApellido, CorreoElectronico, Telefono, Acompañantes, PaisId,TipoHuesped)
+VALUES (1, 'David', 'Alexander', 'Cardenas', 'Almendares', 'dalex10@hotmail.com', '9964-0090', 0, 1,1);
 GO
-INSERT INTO Huesped(IdHuesped, PrimerNombre, SegundoNombre, PrimerApellido,SegundoApellido, CorreoElectronico, Telefono, Acompañantes, PaisId)
-VALUES (2, 'Yoselin', NULL, 'Montes', NULL, 'yoselin@gmail.com', '9620-0916', 1, 1);
+INSERT INTO Huesped(IdHuesped, PrimerNombre, SegundoNombre, PrimerApellido,SegundoApellido, CorreoElectronico, Telefono, Acompañantes, PaisId,TipoHuesped)
+VALUES (2, 'Yoselin', NULL, 'Montes', NULL, 'yoselin@gmail.com', '9620-0916', 1, 1,5);
 GO
 
 SELECT*FROM Huesped;
