@@ -12,7 +12,7 @@ GO
 
 
 INSERT INTO Paises VALUES
-(1, 'Honduras', 'Hondureña');
+(1, 'Honduras', 'HondureÃ±a');
 GO
 
 
@@ -133,7 +133,7 @@ GO
 
 SELECT * FROM Restaurante;
 GO
-
+---------------------------------------------------------------------------------------------------------------------------------------
 CREATE TABLE CargoEmpleado(
 IdCargo INTEGER PRIMARY KEY NOT NULL,
 NombreCargo VARCHAR(100) NOT NULL,
@@ -258,11 +258,11 @@ INSERT INTO TipoHabitacion(IdTipo, Nombre, NumeroCamas, Descripcion, Precio
 GO
 
 INSERT INTO TipoHabitacion(IdTipo, Nombre, NumeroCamas, Descripcion, Precio
-) VALUES (5, 'quad', 4, 'Una habitación asignada a cuatro personas. Puede tener dos o más camas.', 3500);
+) VALUES (5, 'quad', 4, 'Una habitaciÃ³n asignada a cuatro personas. Puede tener dos o mÃ¡s camas.', 3500);
 GO
 
 INSERT INTO TipoHabitacion(IdTipo, Nombre, NumeroCamas, Descripcion, Precio
-) VALUES (6, 'king', 1, 'Una habitación con una cama king-size. Puede ser ocupado por una o más personas.', 1350);
+) VALUES (6, 'king', 1, 'Una habitaciÃ³n con una cama king-size. Puede ser ocupado por una o mÃ¡s personas.', 1350);
 GO
 
 
@@ -319,17 +319,17 @@ PrimerApellido VARCHAR(20) NOT NULL,
 SegundoApellido VARCHAR(20), --puede no tener segundo apellido--
 CorreoElectronico VARCHAR(50)NOT NULL,
 Telefono VARCHAR(50) NOT NULL,
-Acompañantes INTEGER, 
-CHECK(Acompañantes>=0 AND Acompañantes<=3),
+AcompaÃ±antes INTEGER, 
+CHECK(AcompaÃ±antes>=0 AND AcompaÃ±antes<=3),
 PaisId INTEGER REFERENCES Paises(IdPais),
 TipoHuesped INTEGER REFERENCES TipoHuesped(IdTipoHuesped)
 );
 GO
 
-INSERT INTO Huesped(IdHuesped, PrimerNombre, SegundoNombre, PrimerApellido,SegundoApellido, CorreoElectronico, Telefono, Acompañantes, PaisId,TipoHuesped)
+INSERT INTO Huesped(IdHuesped, PrimerNombre, SegundoNombre, PrimerApellido,SegundoApellido, CorreoElectronico, Telefono, AcompaÃ±antes, PaisId,TipoHuesped)
 VALUES (1, 'David', 'Alexander', 'Cardenas', 'Almendares', 'dalex10@hotmail.com', '9964-0090', 0, 1,1);
 GO
-INSERT INTO Huesped(IdHuesped, PrimerNombre, SegundoNombre, PrimerApellido,SegundoApellido, CorreoElectronico, Telefono, Acompañantes, PaisId,TipoHuesped)
+INSERT INTO Huesped(IdHuesped, PrimerNombre, SegundoNombre, PrimerApellido,SegundoApellido, CorreoElectronico, Telefono, AcompaÃ±antes, PaisId,TipoHuesped)
 VALUES (2, 'Yoselin', NULL, 'Montes', NULL, 'yoselin@gmail.com', '9620-0916', 1, 1,5);
 GO
 
@@ -360,42 +360,46 @@ GO
 
 SELECT*FROM HuespedHabitacion;
 GO
-
-CREATE TABLE Transaccion(
-NumeroTransaccion INTEGER Identity(1,1) PRIMARY KEY,
+-------------------------------------------------------------------------------------------------------------------------------
+CREATE TABLE Transigencia(
+CodigoDeTransigencia INTEGER Identity(1,1) PRIMARY KEY,
 FechaHora DATETIME NOT NULL UNIQUE,
 NochesEstadia INTEGER REFERENCES HuespedHabitacion(NumeroRegistro),
-TipoHabitacion INTEGER REFERENCES TipoHabitacion(IdTipo),
+EstiloHabitacion INTEGER REFERENCES TipoHabitacion(IdTipo),
+
 );
 GO
 
-INSERT INTO Transaccion(FechaHora, NochesEstadia)
+
+INSERT INTO Transigencia(FechaHora, NochesEstadia)
 VALUES('2021-15-04 10:10:09 AM', 3);
 GO
 
-INSERT INTO Transaccion(FechaHora, NochesEstadia)
+INSERT INTO Transigencia(FechaHora, NochesEstadia)
 VALUES('2021-16-04 06:15:29 PM', 1);
 GO
 
-SELECT * FROM Transaccion;
+SELECT * FROM Transigencia;
 GO
-
-CREATE TABLE Pedido(
-IdPedido INTEGER,
+-----------------------------------------------------
+CREATE TABLE Orden(
+IdOrden INTEGER,
 IdComida INTEGER,
-PRIMARY KEY (IdPedido),
-Transaccion INTEGER REFERENCES Transaccion(NumeroTransaccion)
+PRIMARY KEY (IdOrden),
+Transaccion INTEGER REFERENCES Transigencia(CodigoDeTransigencia)
 );
 GO
 
-Insert into Pedido(IdPedido, IdComida, Transaccion) 
+Insert into Orden(IdOrden, IdComida, Transaccion) 
 Values(	2002, 1, 1);
 Go
 
-Insert into Pedido(IdPedido, IdComida, Transaccion) 
+Insert into Orden(IdOrden, IdComida, Transaccion) 
 Values(	2002, 2, 1);
 Go
 
+
+------------------------------------
 CREATE TABLE Servicio(
 IdServicio INTEGER PRIMARY KEY,
 NombreServicio VARCHAR(150) NOT NULL,
@@ -426,3 +430,30 @@ GO
 
 SELECT * FROM Servicio;
 GO
+-------------------------------------------------------------------
+
+
+CREATE TABLE Factura(
+CodigoDeFactura INTEGER IDENTITY(1,1) PRIMARY KEY,
+NotaFactura VARCHAR(100) NOT NULL,
+Cliente INTEGER REFERENCES Huesped(IdHuesped),
+Transaccion INTEGER REFERENCES Transigencia(CodigoDeTransigencia),
+GastosServicios INTEGER REFERENCES Servicio(IdServicio),
+MetodoPago BIT NOT NULL, -----------El 1 es pago en efectivo y 0 pago por tarjeta
+Total DECIMAL(13,2) NOT NULL
+);
+GO
+
+INSERT INTO Factura(NotaFactura, Cliente, Transaccion, GastosServicios, Total, MetodoPago)
+VALUES('Gracias  "por, venir"', 30, 1, 3, 5500, 0);
+GO
+
+INSERT INTO Factura(NotaFactura,Cliente, Transaccion, GastosServicios, Total, MetodoPago)
+VALUES('FELIZ DIA "le, deseamos"', 11, 22, 2, 900, 1);
+GO
+
+
+SELECT * FROM Factura;
+GO
+
+---------------------------------------------------------------------
